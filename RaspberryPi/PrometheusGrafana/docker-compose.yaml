@@ -1,0 +1,29 @@
+version: '3'
+volumes:
+    prometheus_data: {}
+    grafana_data: {}
+services:
+    # Prometheus backend.
+    prometheus:
+        restart: always
+        image: prom/prometheus
+        volumes:
+            - ./prometheus_config:/etc/prometheus
+            - ./prometheus_data:/prometheus
+        command:
+            - '--config.file=/etc/prometheus/prometheus.yaml'
+        ports:
+            - '9090:9090'
+
+    # Visualization.
+    grafana:
+        restart: always
+        image: grafana/grafana
+        volumes:
+            - ./grafana_data:/var/lib/grafana
+        environment:
+            GF_SECURITY_ADMIN_PASSWORD: defaultpassword
+        depends_on:
+            - prometheus
+        ports:
+            - '3000:3000'
