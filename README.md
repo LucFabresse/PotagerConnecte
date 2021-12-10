@@ -21,5 +21,6 @@ platformio code in `ESP8266/`
 
 1. Plug the raspi
     - it creates a wifi
-    - starts prometheus and grafana as docker containers
-2.
+    - it (automatically?) starts prometheus and grafana as docker containers
+2. connect your phone / tablet / pc to raspi wifi
+3. go to Grafana [http://10.3.141.1:3000/](http://10.3.141.1:3000/)
