@@ -15,7 +15,7 @@ platformio code in `ESP8266/`
 
 ## Raspberry pi (raspi)
 
-- [Installation notes](RaspberryPi/Installation.md)
+- [Installation notes](RaspberryPi/INSTALLATION.md)
 
 ## How to use
 
