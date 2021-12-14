@@ -1,0 +1,64 @@
+# esphome run --device /dev/ttyUSB0
+
+# https://github.com/esphome/esphome-project-template/blob/main/project-template-esp8266.yaml
+
+esphome:
+  name: esp_potager2
+
+esp8266:
+  board: nodemcuv2
+  framework:
+    version: recommended
+
+wifi:
+  ssid: "hank"
+  password: "Hank$234"
+  # manual_ip:
+  #   static_ip: 192.168.1.31
+  #   gateway: 192.168.1.254
+  #   subnet: 255.255.255.0
+  ap:
+    ssid: "esphome"
+    password: "esphome!"
+
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device.
+captive_portal:
+
+# To be able to get logs from the device via serial and api.
+logger:
+
+# OTA is required for Over-the-Air updating
+ota:
+
+# Sets up the improv via serial client for Wi-Fi provisioning
+# improv_serial:
+
+# Example configuration entry
+i2c:
+  sda: D2
+  scl: D1
+  scan: False
+
+sensor:
+  - platform: bme280
+    temperature:
+      name: "BME280 Temperature"
+      oversampling: 16x
+    pressure:
+      name: "BME280 Pressure"
+    humidity:
+      name: "BME280 Humidity"
+    address: 0x76
+    update_interval: 60s
+  - platform: bh1750
+    name: "BH1750 Illuminance"
+    address: 0x77
+    measurement_duration: 69
+    update_interval: 60s
+
+# Example configuration entry
+web_server:
+
+# Activates prometheus /metrics endpoint
+prometheus:
