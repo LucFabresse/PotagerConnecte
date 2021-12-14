@@ -9,9 +9,13 @@
 
 - Raspberry Pi
 
-## Programming ESP8266
+## Using ESPHome for ESP8266
 
-platformio code in `ESP8266/`
+cf. [ESPHome](./ESPHome)
+
+## Manually Programming ESP8266
+
+cf. platformio code in [ESP8266](./ESP8266)
 
 ## Raspberry pi (raspi)
 
