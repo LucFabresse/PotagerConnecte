@@ -36,26 +36,22 @@ ota:
 
 # Example configuration entry
 i2c:
-  sda: D2
-  scl: D1
+  sda: D4
+  scl: D5
   scan: False
 
 sensor:
-  - platform: bme280
+  - platform: bmp085
     temperature:
-      name: "BME280 Temperature"
-      oversampling: 16x
+      name: "Outside Temperature"
     pressure:
-      name: "BME280 Pressure"
-    humidity:
-      name: "BME280 Humidity"
-    address: 0x76
+      name: "Outside Pressure"
     update_interval: 60s
-  - platform: bh1750
-    name: "BH1750 Illuminance"
-    address: 0x77
-    measurement_duration: 69
-    update_interval: 60s
+  # - platform: bh1750
+  #   name: "BH1750 Illuminance"
+  #   address: 0x77
+  #   measurement_duration: 69
+  #   update_interval: 60s
 
 # Example configuration entry
 web_server:
